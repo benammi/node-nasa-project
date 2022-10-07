@@ -87,10 +87,12 @@ async function getAllLaunches(skip, limit) {
 }
 
 async function schedualeNewLaunch(launch) {
-  console.log("start httpAddNewLaunch");
+  console.log("start schedualeNewLaunch");
   const planet = await planets.findOne({ keplerName: launch.target }).exec();
 
   if (!planet) {
+    console.log("throw error");
+
     throw new Error("No matching planet was Found");
   }
 
@@ -110,7 +112,6 @@ async function schedualeNewLaunch(launch) {
   console.log("finish schedualeNewLaunch");
 
   return launch;
-
 }
 
 async function saveLaunch(launch) {
