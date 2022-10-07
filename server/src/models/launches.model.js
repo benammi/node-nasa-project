@@ -87,6 +87,7 @@ async function getAllLaunches(skip, limit) {
 }
 
 async function schedualeNewLaunch(launch) {
+  console.log("start httpAddNewLaunch");
   const planet = await planets.findOne({ keplerName: launch.target }).exec();
 
   if (!planet) {
@@ -102,12 +103,18 @@ async function schedualeNewLaunch(launch) {
     flightNumber: dbFlightNumber,
   });
 
+  console.log("start check planets done");
+
   await saveLaunch(launch);
 
+  console.log("finish schedualeNewLaunch");
+
   return launch;
+
 }
 
 async function saveLaunch(launch) {
+  console.log("start saveLaunch");
   await launches.findOneAndUpdate(
     {
       flightNumber: launch.flightNumber,
@@ -115,6 +122,7 @@ async function saveLaunch(launch) {
     launch,
     { upsert: true }
   );
+  console.log("finish saveLaunch");
 }
 
 async function getlatestFlightNumber() {
