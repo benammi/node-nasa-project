@@ -129,7 +129,11 @@ async function saveLaunch(launch) {
 async function getlatestFlightNumber() {
   const latestLaunch = await launches.findOne().sort("-flightNumber");
 
-  return latestLaunch.flightNumber ?? 100;
+  if (latestLaunch) {
+    return latestLaunch.flightNumber;
+  }
+
+  return 100;
 }
 
 async function abortLaunchById(LaunchId) {
