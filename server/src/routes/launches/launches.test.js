@@ -15,10 +15,13 @@ describe("test launches", () => {
 
   describe("Test GET /launches", () => {
     test("should responde with 200 success", async () => {
+      console.log("Test GET /launches Start");
+
       const response = await request(app)
         .get("/v1/launches")
         .expect("Content-Type", /json/)
         .expect(200);
+      console.log("Test GET /launches done");
     });
   });
 
@@ -44,11 +47,15 @@ describe("test launches", () => {
     };
 
     test("should response with 201 created", async () => {
+      console.log("Test POST /launches start");
+
       const response = await request(app)
         .post("/v1/launches")
         .send(completLaunchData)
         .expect("Content-Type", /json/)
         .expect(201);
+
+      console.log("Test POST /launches done");
 
       const resquestDate = new Date(completLaunchData.launchDate).valueOf();
       const responseDate = new Date(response.body.launchDate).valueOf();
