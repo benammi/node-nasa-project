@@ -19,7 +19,6 @@ describe("test launches", () => {
         .get("/v1/launches")
         .expect("Content-Type", /json/)
         .expect(200);
-      // expect(response.statusCode).toBe(200);
     });
   });
 

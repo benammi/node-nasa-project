@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - name: MongoDB Action
-        uses: SusanDoggie/mongodb-action@0.0.1
+        uses: supercharge/mongodb-github-action@1.6.0
         with:
           mongodb-version: ${{matrix.mongodb-version}}
       - run: npm run install
