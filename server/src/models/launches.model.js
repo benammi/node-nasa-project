@@ -89,7 +89,7 @@ async function getAllLaunches(skip, limit) {
 async function schedualeNewLaunch(launch) {
   console.log("start schedualeNewLaunch");
   const planet = await planets.findOne({ keplerName: launch.target }).exec();
-
+  console.log(planet);
   if (!planet) {
     console.log("throw error");
 
