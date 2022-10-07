@@ -1,5 +1,5 @@
 const http = require("http");
-require(dotenv).config();
+require('dotenv').config();
 
 const app = require("./app");
 const { mongoConnect } = require("./services/mongo");
