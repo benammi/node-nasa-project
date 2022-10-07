@@ -1,6 +1,6 @@
 name: NASA Project CI
 on:
-  puch:
+  push:
     branches: [main]
   pull_request:
     branches: [main]
